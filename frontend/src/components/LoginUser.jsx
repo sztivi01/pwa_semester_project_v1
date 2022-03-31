@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import loginImage from "../assets/background.jpg";
 import {MdEmail} from 'react-icons/md';
 import {FaLock} from 'react-icons/fa';
@@ -24,8 +25,9 @@ export default function LoginUser(){
                     <button className='border rounded-lg w-full py-3 mt-8 bg-indigo-600 hover:bg-indigo-500 relative text-white'>Login</button>
                     <p className='flex items-center mt-2'><input className='mr-2' type="checkbox" />Remember Me</p>
                     
+                    <Link to='/registration'>
                     <button className='underline underline-offset-2 relative mt-8 w-full text-indigo-800'>Not a member? Sign Up here!</button>
-                    
+                    </Link>
 
                 </form>
             </div>

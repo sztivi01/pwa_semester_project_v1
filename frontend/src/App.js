@@ -3,6 +3,7 @@ import React from 'react';
 import { Routes, Route } from "react-router-dom";
 import Login  from "./routes/Login";
 import Registration  from "./routes/Registration";
+import Dashboard  from "./routes/Dashboard";
 
 
 
@@ -13,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/login" element={ <Login />}/>
             <Route path="/registration" element={<Registration />}/>
+            <Route path="/" element={<Dashboard />}/>
           </Routes>
     </div>
   );

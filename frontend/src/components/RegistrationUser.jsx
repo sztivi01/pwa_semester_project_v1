@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import loginImage from "../assets/background.jpg";
 import {FaUserAlt, FaLock} from 'react-icons/fa';
 import {MdEmail} from 'react-icons/md';
@@ -39,9 +40,9 @@ export default function RegisterUser(){
                     </div>
                     <button className='border rounded-lg w-full py-3 mt-8 bg-indigo-600 hover:bg-indigo-500 relative text-white'>Sign Up</button>
                     
-                    
+                    <Link to='/login'>
                     <button className='underline underline-offset-2 relative mt-8 w-full text-indigo-800'>Already a member? Login here!</button>
-                    
+                    </Link>
 
                 </form>
             </div>
