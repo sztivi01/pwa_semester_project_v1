@@ -8,13 +8,14 @@ import Dashboard  from "./routes/Dashboard";
 
 
 
+
 function App() {
   return (
     <div>
           <Routes>
             <Route path="/login" element={ <Login />}/>
             <Route path="/registration" element={<Registration />}/>
-            <Route path="/" element={<Dashboard />}/>
+            <Route path="/dashboard" element={<Dashboard />}/>
           </Routes>
     </div>
   );
