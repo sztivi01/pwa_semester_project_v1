@@ -1,10 +1,10 @@
 import React from 'react';
-import LoginUser from '../components/LoginUser';
+import Loginn from '../components/LoginUser';
 
 const Login = () => {
      return (
          <div>
-            <LoginUser />
+            <Loginn />
          </div>
      )
 }
