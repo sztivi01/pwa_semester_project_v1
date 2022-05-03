@@ -41,25 +41,15 @@ export default function Loginn(){
       });
     } else {
       /*swal("Failed", response.message, "error");*/
-      toast.error('Invalid email, please try again!', {
-        position: "right",
-        autoClose: 1,
+      /*toast.error(error.message + ', please try again!', {
+        position: "top-right",
+        autoClose: false,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: false,
         draggable: true,
         progress: undefined,
-        });
-       /* toast.error('Invalid password, please try again!', {
-            position: "right",
-            autoClose: 1,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: true,
-            progress: undefined,
-            });*/
-      
+        });*/
     }
   }
     return (

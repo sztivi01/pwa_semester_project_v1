@@ -1,10 +1,10 @@
 import React from 'react';
-import RegistrationUser from '../components/RegistrationUser';
+import Register from '../components/RegistrationUser';
 
 const Login = () => {
      return (
          <div>
-            <RegistrationUser />
+            <Register />
          </div>
      )
 }
