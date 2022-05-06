@@ -3,7 +3,7 @@ import Menu from './Menu.jsx';
 
 export default function Layout(props) {
     return(
-      <div>
+      <div class="">
          <Menu/>
          <div>
             

@@ -2,11 +2,11 @@ import React from "react";
 
 export default function Menu() {
     return(
-        <aside class="w-64 h-full" aria-label="Sidebar">
-            <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-indigo-600">
+        <aside class="w-64" aria-label="Sidebar">
+            <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-indigo-600 h-screen" >
             <a href="https://flowbite.com" class="flex items-center pl-2.5 mb-5">
-                <img src="" class="h-6 mr-3 sm:h-7" alt="Tasker Logo"/>
-                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Tasker</span>
+            
+                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Tasker™</span>
             </a>
             <ul class="space-y-2">
             <li>
