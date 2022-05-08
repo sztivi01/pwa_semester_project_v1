@@ -4,16 +4,18 @@ import loginImage from "../assets/background.jpg";
 import { MdEmail } from "react-icons/md";
 import { FaLock } from "react-icons/fa";
 import swal from "sweetalert";
+import TextField from "./TextField";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-async function loginUser(email, password) {
+
+async function loginUser(credentials) {
   return fetch("https://stark-forest-32910.herokuapp.com/api/users/login/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(email, password),
+    body: JSON.stringify(credentials),
   }).then((data) => data.json());
 }
 
@@ -64,34 +66,20 @@ export default function Loginn() {
           className="max-w-[400px] w-full mx-auto bg-white p-8"
         >
           <h2 className="text-3xl font-bold text-center py-5 mb-5">Tasker™</h2>
-          <div className="flex flex-col mb-4">
-            <label className="flex item-center">
-              <MdEmail className="ml-1 mr-2 mt-1" />
-              Email
-            </label>
-            <input
-              id="email"
-              name="email"
-              label="Email Address"
-              onChange={(e) => setEmail(e.target.value)}
-              className="border border-indigo-600 rounded-lg relative  p-2"
-              type="text"
-            />
-          </div>
-          <div className="flex flex-col mb-4">
-            <label className="flex item-center">
-              <FaLock className="ml-1 mr-2 mt-1" />
-              Password
-            </label>
-            <input
-              id="password"
-              name="password"
-              label="Password"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-              className="border border-indigo-600 rounded-lg relative  p-2"
-            />
-          </div>
+          <TextField
+            value={email}
+            label="Email"
+            type={"text"}
+            icon={<MdEmail className="ml-1 mr-2 mt-1" />}
+            onChange={(value) => setEmail(value)} //onChange={(e) => setEmail(e.target.value)}
+          />
+          <TextField
+            value={password}
+            label="Password"
+            type={"password"}
+            icon={<FaLock className="ml-1 mr-2 mt-1" />}
+            onChange={(value) => setPassword(value)} //onChange={(e) => setPassword(e.target.value)}
+          />
           <button
             type="submit"
             className="border rounded-lg w-full py-3 mt-8 bg-indigo-600 hover:bg-indigo-500 relative text-white"
