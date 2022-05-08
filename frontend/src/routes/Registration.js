@@ -1,12 +1,12 @@
 import React from 'react';
-import Register from '../components/RegistrationUser';
+import Registerr from '../components/RegistrationUser';
 
-const Login = () => {
+const Register = () => {
      return (
          <div>
-            <Register />
+            <Registerr />
          </div>
      )
 }
 
-export default Login
+export default Register;
