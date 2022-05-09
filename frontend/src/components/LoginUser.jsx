@@ -8,7 +8,6 @@ import TextField from "./TextField";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 async function loginUser(credentials) {
   return fetch("https://stark-forest-32910.herokuapp.com/api/users/login/", {
     method: "POST",
@@ -20,7 +19,6 @@ async function loginUser(credentials) {
 }
 
 export default function Loginn() {
-  console.log("text");
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -39,8 +37,8 @@ export default function Loginn() {
         localStorage.setItem("user", res["data"].userId);
         window.location.href = "/dashboard";
       });
-    } else {
-      toast.error(res.message + ", please try again!", {
+    } else if (res["error"] !== null) {
+      toast.error(res.error + ", please try again!", {
         position: "top-right",
         autoClose: false,
         hideProgressBar: true,

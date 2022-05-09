@@ -39,8 +39,8 @@ export default function Registerr() {
       }).then((value) => {
         window.location.href = "/login";
       });
-    } else {
-      toast.error(res.message + ", please try again!", {
+    } else if (res["error"] !== null) {
+      toast.error(res.error + ", please try again!", {
         position: "top-right",
         autoClose: false,
         hideProgressBar: true,
