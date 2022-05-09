@@ -12,24 +12,6 @@ code {
     monospace;
 }
 
-root {
-  --primary-color: rgb(62, 100, 255);
-  --complete-color: #27aa80;
-  --text-color: #172b4d;
-  --disabled-color: #fad6d6;
-  --background-color: #f5eaea;
-}
-
-html {
-  background: rgb(0, 73, 191);
-  background: linear-gradient(
-    90deg,
-    rgba(0, 73, 191, 1) 0%,
-    rgba(190, 190, 255, 1) 46%,
-    rgba(0, 212, 255, 1) 100%
-  );
-}
-
 body {
   color: var(--text-color);
   font-family: sans-serif;
@@ -54,11 +36,7 @@ label {
 }
 
 button,
-input {
-  padding: 4px;
-  border: 1px solid var(--disabled-color);
-}
-
+input
 button {
   outline: none;
   background: transparent;
@@ -95,6 +73,14 @@ select {
   flex-direction: row;
   justify-content: center;
   padding-left: 40px;
+    background: rgb(0, 73, 191);
+    background: linear-gradient(
+      90deg,
+      rgba(0, 73, 191, 1) 0%,
+      rgba(190, 190, 255, 1) 46%,
+      rgba(0, 212, 255, 1) 100%
+    );
+  
 }
 
 .item {
