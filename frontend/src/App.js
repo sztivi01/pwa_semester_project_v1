@@ -1,4 +1,4 @@
-import "./App.css";
+
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router-dom";
@@ -10,6 +10,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import Homepage from "./pages/Homepage/Homepage";
 
 function App() {
+  
   return (
     <div>
       <DndProvider backend={HTML5Backend}>
