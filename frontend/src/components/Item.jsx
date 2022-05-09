@@ -65,8 +65,9 @@
                 onClick={onOpen}
             >
                 <div className={"color-bar"} style={{backgroundColor:status.color}}/>
-                <p className={"item-title"}>{item.content}</p>
+                <p className={"item-title"}>{item.title}</p>
                 <p className={"item-status"}>{item.icon}</p>
+                <p className={"item-content"}>{item.content}</p>
 
             </div>
             <Window

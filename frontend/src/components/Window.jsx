@@ -28,7 +28,7 @@ const Window = ({show,onClose,item})  => {
                 </p>
             </div>
             <div> 
-                </div> 
+            </div> 
         </Modal>
 
        
