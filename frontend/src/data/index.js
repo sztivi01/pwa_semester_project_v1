@@ -22,7 +22,8 @@ const data = [{
     status: "open",
     title: "Daily reading",
     content: "Finish reading Intro to UI/UX"
-}];
+}
+];
 
 const statuses = [{
     status: "open",
