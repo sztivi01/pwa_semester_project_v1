@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import {QueryClientProvider,QueryClient} from 'react-query';
 import { Navigate } from "react-router-dom";
 import Login from "./routes/Login";
 import Registration from "./routes/Registration";
@@ -9,9 +10,11 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Homepage from "./pages/Homepage/Homepage";
 
+const QueryClient = new QueryClient()
 function App() {
   
   return (
+    <QueryClientProvider client={QueryClient}> 
     <div>
       <DndProvider backend={HTML5Backend}>
         <Routes>
@@ -23,6 +26,7 @@ function App() {
         </Routes>
       </DndProvider>
     </div>
+    </QueryClientProvider>
   );
 }
 
