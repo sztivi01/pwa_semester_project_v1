@@ -10,11 +10,11 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import SpecProject from "./pages/SpecProject/SpecProject";
 
-const QueryClient = new QueryClient()
+const queryClient = new QueryClient();
 function App() {
   
   return (
-    <QueryClientProvider client={QueryClient}> 
+    <QueryClientProvider client={queryClient}> 
     <div>
       <DndProvider backend={HTML5Backend}>
         <Routes>
