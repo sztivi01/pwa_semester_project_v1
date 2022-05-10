@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Menu() {
     return(
-        <aside class="w-64" aria-label="Sidebar">
+        {/* <aside class="w-64" aria-label="Sidebar">
             <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-indigo-600 h-screen" >
             <a href="https://flowbite.com" class="flex items-center pl-2.5 mb-5">
             
@@ -46,5 +46,13 @@ export default function Menu() {
         </ul>
         </div>
          
-        </aside>
+        </aside> */
+    
+    
+    
+    
+    
+    
+    
+    }
 )}
