@@ -1,8 +1,8 @@
-
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./routes/Login";
+import ProtectedRoutes from "./routes/ProtectedRoutes";
+import PublicRoutes from './routes/PublicRoutes';
 import Registration from "./routes/Registration";
 import Dashboard from "./routes/Dashboard";
 import { DndProvider } from "react-dnd";
@@ -11,15 +11,21 @@ import Homepage from "./pages/Homepage/Homepage";
 
 function App() {
   
+
   return (
     <div>
       <DndProvider backend={HTML5Backend}>
         <Routes>
-          <Route exact path="/" element={<Navigate to="/registration"/>} />
+          <Route path="/" element={<PublicRoutes/>}>
+          <Route exact path="/" element={<Navigate to="/registration" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<Registration />} />
+        </Route>
+
+        <Route path="/" element={<ProtectedRoutes/>}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/homepage" element={<Homepage />} />
+        </Route>
         </Routes>
       </DndProvider>
     </div>
