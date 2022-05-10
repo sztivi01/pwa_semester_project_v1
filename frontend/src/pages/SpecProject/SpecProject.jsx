@@ -3,10 +3,10 @@ import Item from "../../components/Item";
 import DropWrapper from "../../components/DropWrapper";
 import Col from "../../components/Col";
 import {data,statuses} from "../../data";
-import './homepage.css';
+import './SpecProject.css';
 
 
-const Homepage = props => {
+const SpecProject = props => {
 
     const [items,setItems] = useState(data);
 
@@ -50,4 +50,4 @@ const Homepage = props => {
     )
 };
 
-export default Homepage;
+export default SpecProject;

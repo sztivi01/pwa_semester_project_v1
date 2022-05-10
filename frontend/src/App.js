@@ -8,7 +8,7 @@ import Registration from "./routes/Registration";
 import Dashboard from "./routes/Dashboard";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import Homepage from "./pages/Homepage/Homepage";
+import SpecProject from "./pages/SpecProject/SpecProject";
 
 const QueryClient = new QueryClient()
 function App() {
@@ -22,7 +22,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/homepage" element={<Homepage />} />
+          <Route path="/specproject" element={<SpecProject />} />
         </Routes>
       </DndProvider>
     </div>
