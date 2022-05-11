@@ -15,6 +15,7 @@ import Navbar from "./components/Navbar"
 import Settings from "./pages/SettingsPage/Settings";
 import Tasks from "./pages/Tasks/Tasks";
 import './App.css';
+import ListOfTaskByProjectId from "./components/ListOfTaskByProjectId";
 
 const queryClient = new QueryClient();
 function App() {
@@ -24,21 +25,19 @@ function App() {
     <QueryClientProvider client={queryClient}> 
     <div>
       <DndProvider backend={HTML5Backend}>
-        
         <Routes>
           <Route path="/" element={<PublicRoutes/>}>
           <Route exact path="/" element={<Navigate to="/registration" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<Registration />} />
         </Route>
-
         <Route path="/" element={<><Navbar/><ProtectedRoutes/></>}>
-        
           <Route path="/dashboard" element={<DashboardHome/>} />
           <Route path="/settings" element={<Settings/>} />
           <Route path="/tasks" element={<Tasks/>} />
           <Route path="/specproject" element={<SpecProject />} />
           <Route path="/listofprojects" element={<ListOfProjects />} />
+          <Route path="/listoftasksbyprojectid/:projectId" element={<ListOfTaskByProjectId />} />
         </Route>
         </Routes>
       </DndProvider>

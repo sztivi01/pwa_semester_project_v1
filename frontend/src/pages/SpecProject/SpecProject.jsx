@@ -4,6 +4,8 @@ import DropWrapper from "../../components/DropWrapper";
 import Col from "../../components/Col";
 import {data,statuses} from "../../data";
 import './SpecProject.css';
+import '../../components/ListOfProjects.jsx';
+
 
 
 const SpecProject = props => {
