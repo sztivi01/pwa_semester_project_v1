@@ -7,7 +7,7 @@
  const Item = ({item , index, moveItem , status }) => {
      const ref = useRef(null);
      
-     const [,drop ] = useDrop({
+     const [, drop ] = useDrop({
          accept:ITEM_TYPE,
          hover(item,monitor){
             if(!ref.current){
@@ -21,19 +21,18 @@
                 return;
             }
             const hoveredRect = ref.current.getBoundingClientRect();
-            const hoveredMiddleY = (hoveredRect.bottom - hoveredRect.top) / 2;
+            const hoverMiddleY = (hoveredRect.bottom - hoveredRect.top) / 2;
             const mousePosition = monitor.getClientOffset();
-            const hoveredClientY = mousePosition.y - hoveredRect.top;
+            const hoverClientY = mousePosition.y - hoveredRect.top;
 
-            if (dragIndex < hoverIndex && hoveredClientY < hoveredMiddleY) {
+            if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
                 return;
             }
 
-            if(dragIndex > hoverIndex && hoveredClientY < hoveredMiddleY){
+            if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
                 return;
             }
-
-            moveItem(dragIndex,hoverIndex);
+            moveItem(dragIndex, hoverIndex);
             item.index = hoverIndex;
 
          }
