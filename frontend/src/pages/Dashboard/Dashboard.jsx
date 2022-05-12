@@ -3,10 +3,7 @@ import ProjectContainer from "../../components/ProjectContainer";
 import { FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-
-
 export default function DashboardHome() {
-
   return (
     /*<div classNameName="dashboard">
       
@@ -30,11 +27,6 @@ export default function DashboardHome() {
             <p className="text-xl mb-4 ml-1">Your Projects</p>
 
             <div className="grid grid-cols-3 gap-4 sm:grid-cols-3 bg-slate-100 p-7 rounded-xl">
-              <ProjectContainer/>
-              <ProjectContainer />
-              <ProjectContainer />
-              <ProjectContainer />
-              <ProjectContainer />
               <ProjectContainer />
             </div>
           </div>

@@ -81,9 +81,9 @@ export default function Loginn() {
           />
           <button
             type="submit"
-            className="border rounded-lg w-full py-3 mt-8 bg-indigo-600 hover:bg-indigo-500 relative text-white"
+            className="border rounded-lg w-full py-3 mt-8 font-bold text-lg text-white bg-indigo-600 border-indigo-600 hover:bg-indigo-400  active:text-indigo-500 focus:outline-none focus:ring relative "
           >
-            Login
+            Login  
           </button>
           <p className="flex items-center mt-2">
             <input className="mr-2" type="checkbox" />
