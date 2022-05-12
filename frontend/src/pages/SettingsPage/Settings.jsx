@@ -29,8 +29,8 @@ import avatarImg from "../../assets/avatar.jpg";
 import TextFieldAvatar from "../../components/TextFieldAvatar";
 import { FaLock } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { useLinkClickHandler } from "react-router-dom";
 //import FetchUser from "../../components/FetchUser";
-
 
 export default function Settings(props) {
     return(
@@ -86,7 +86,7 @@ export default function Settings(props) {
                 <TextFieldAvatar
                     label="password"
                     type={"password"}
-                    icon={<MdEmail className="ml-1 mr-2 mt-1" />}
+                    icon={<FaLock className="ml-1 mr-2 mt-1" />}
                 />
                 </div>
                 <div className="flex items-center justify-center mr-16">
