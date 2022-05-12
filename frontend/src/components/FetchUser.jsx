@@ -1,24 +1,25 @@
 import { useQuery } from "react-query";
 //import axios from "axios";
-import { request } from "../utils/axios-util";
+import { request } from "../../utils/axios-util";
 
-const fetchUser = () => {
-    //return axios.get('https://stark-forest-32910.herokuapp.com/api/project')
-    return request ({url:'/users/' + localStorage.getItem('user')})
+const fetchUser = (userId) => {
+    return request({ url: '/users/' + localStorage.getItem('user') })
 }
+
 export const UserData = () => {
-    const { isLoading, data} = useQuery('userEmailPassword', fetchUser);
-    if(isLoading) {        
-        return <h2>Loading...</h2>
-    }
 
-    return (
-        <>
-        <h2>User info:</h2>
-        {data?.data.map((users) => {
-            return <div key={users.email}>{users.firstname}{users.lastname}</div>
-        })}
-        </>
-    )
+    const { data, error, status } = useQuery(["user",localStorage.getItem('user')], (userId) =>
+        fetchUser(userId)
+    );
+
+    console.log(data)
+    return data?.data
+    /*return (
+      <>
+      <h2>RQ Project names:</h2>
+      <div>{{ user }}</div>
+      </>
+  )*/
 }
+
 export default UserData;
