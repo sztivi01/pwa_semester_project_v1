@@ -53,8 +53,6 @@
     const onClose = () =>setShow(false);
 
     drag(drag(ref));
-
-
     return ( 
         <Fragment>
             <div
@@ -77,5 +75,7 @@
             </Fragment>
             
     )
+
+
  }
  export default Item;
