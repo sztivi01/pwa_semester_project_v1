@@ -8,18 +8,12 @@ const fetchUser = (userId) => {
 
 export const UserData = () => {
 
-    const { data, error, status } = useQuery(["user",localStorage.getItem('user')], (userId) =>
-        fetchUser(userId)
+    const { data/* , error, status */ } = useQuery([ localStorage.getItem('email'),localStorage.getItem('firstName'),localStorage.getItem('lastName'), localStorage.getItem('user')], (userId) => 
+        fetchUser(userId)       
     );
 
     console.log(data)
-    return data?.data
-    /*return (
-      <>
-      <h2>RQ Project names:</h2>
-      <div>{{ user }}</div>
-      </>
-  )*/
-}
+    return
+};
 
 export default UserData;

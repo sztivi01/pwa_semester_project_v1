@@ -1,36 +1,8 @@
-/*import { useQuery } from "react-query";
-//import axios from "axios";
-import { request } from "../../utils/axios-util";
-
-const fetchUser = () => {
-    //return axios.get('https://stark-forest-32910.herokuapp.com/api/project')
-    return request ({url:'/users/' + localStorage.getItem('user')})
-}
-export const UserData = () => {
-    const { isLoading, data} = useQuery('userEmailPassword', fetchUser);
-    if(isLoading) {        
-        return <h2>Loading...</h2>
-    }
-
-    return (
-        <>
-        <h2>User info:</h2>
-        {data?.data.map((users) => {
-            return <div key={users.email}>{users.email}</div>
-        })}
-        </>
-    )
-}
-export default UserData;*/
-
-
 import React from "react";
 import avatarImg from "../../assets/avatar.jpg";
 import TextFieldAvatar from "../../components/TextFieldAvatar";
 import { FaLock } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { useLinkClickHandler } from "react-router-dom";
-//import FetchUser from "../../components/FetchUser";
 
 export default function Settings(props) {
     return(
@@ -39,9 +11,18 @@ export default function Settings(props) {
          <div
           className="w-[500px] h-[full]"
         >
-        <div className="mb-16 flex items-center justify-center">
-            Firstname Lastname
+        <div className="flex items-center justify-center">
+              <div className="">
+                 <p>{localStorage.getItem('firstName')}</p>
+              </div>
+            <div className="ml-1">
+               <p>{localStorage.getItem('lastName')}</p>
+            </div>
+
         </div>
+              <div className="flex items-center justify-center">
+                <p>{localStorage.getItem('email')}</p>
+              </div>
         <div 
         className="mb-16 flex items-center justify-center">
           <img
@@ -64,6 +45,7 @@ export default function Settings(props) {
               <div className="flex w-full h-full">
                 <TextFieldAvatar
                     label="Email"
+                    defaultValue= "hello"
                     type={"text"}
                     icon={<MdEmail className="ml-1 mr-2 mt-1" />}
                 />
