@@ -35,7 +35,7 @@ function App() {
           <Route path="/dashboard" element={<DashboardHome/>} />
           <Route path="/settings" element={<Settings/>} />
           <Route path="/tasks" element={<Tasks/>} />
-          <Route path="/specproject" element={<SpecProject />} />
+          <Route path="/specproject/:projectId" element={<SpecProject />} />
           <Route path="/listofprojects" element={<ListOfProjects />} />
           <Route path="/listoftasksbyprojectid/:projectId" element={<ListOfTaskByProjectId />} />
         </Route>

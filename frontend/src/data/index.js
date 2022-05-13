@@ -44,4 +44,4 @@ const statuses = [{
 }];
 
 
-export { data, statuses };
+export { statuses };

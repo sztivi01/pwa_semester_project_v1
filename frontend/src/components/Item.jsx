@@ -1,10 +1,19 @@
- import React,{Fragment,useState,useRef} from 'react';
- import {useDrag,useDrop} from 'react-dnd';
- import Window from "./Window";
- import ITEM_TYPE from "../data/types";
+import React,{Fragment,useState,useRef} from 'react';
+import {useDrag,useDrop} from 'react-dnd';
+import Window from "./Window";
+import ITEM_TYPE from "../data/types";
+import ListOfTaskByProjectId from "../components/ListOfTaskByProjectId";
+import { useQuery } from "react-query";
+//import axios from "axios";
+import { request } from "../utils/axios-util";
 
+ const tasks = () => {
+    //return axios.get('https://stark-forest-32910.herokuapp.com/api/project')
+    return request ({url:'/tasks/' + localStorage.getItem('user')})
+}
+ const ListofTasks = ({item , index, moveItem , title, taskDescription, status }) => {
+    const { data} = useQuery('projectNames', tasks);
 
- const Item = ({item , index, moveItem , status }) => {
      const ref = useRef(null);
      
      const [, drop ] = useDrop({
@@ -52,20 +61,26 @@
 
     const onClose = () =>setShow(false);
 
+
     drag(drag(ref));
     return ( 
         <Fragment>
             <div
+
                 ref={ref}
                 style={{opacity:isDragging ? 0: 1}}
                 className={"item"}
                 onClick={onOpen}
             >
-                <div className={"color-bar"} style={{backgroundColor:status.color}}/>
-                <p className={"item-title"}>{item.title}</p>
-                <p className={"item-status"}>{item.icon}</p>
-                <p className={"item-content"}>{item.content}</p>
-
+                        {data?.data.map((task) => {
+                        return  <div key={task._id}>
+                        <div className={"color-bar"} style={{backgroundColor:status.color}}/>
+                        <p className={"item-title"}>{task.title}</p>
+                        <p className={"item-status"}>{task.status}</p>
+                        <p className={"item-content"}>{task.taskDescription}</p>
+                        </div>
+                        
+                    })}
             </div>
             <Window
                 item={item}
@@ -78,4 +93,4 @@
 
 
  }
- export default Item;
+ export default ListofTasks;
