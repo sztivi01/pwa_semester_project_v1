@@ -6,6 +6,7 @@ export const request = ({ ...options }) => {
     let token = localStorage.getItem('accessToken')
     if(token) {
         client.defaults.headers.common['Authorization'] = `Bearer ${token}`
+        
     }
 
   const onSuccess = response => response
