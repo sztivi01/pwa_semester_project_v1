@@ -34,10 +34,7 @@ export default function Loginn() {
         buttons: false,
         timer: 2000,
       }).then((value) => {
-<<<<<<< Updated upstream
-=======
         //debugger;
->>>>>>> Stashed changes
         localStorage.setItem("accessToken", res["data"].token);
         localStorage.setItem("user", res["data"].userId);
         localStorage.setItem("userObject", JSON.stringify(res.data));
