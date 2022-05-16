@@ -9,6 +9,7 @@ import { statuses } from "../data";
 import '../pages/SpecProject/SpecProject.css';
 
 
+
 const fetchTasksByProjectId = (projectId) => {
     //return axios.get('https://stark-forest-32910.herokuapp.com/api/project')
     return request({ url: `/tasks/project/${projectId}/tasks` });
@@ -60,11 +61,22 @@ export const ListOfTaskByProjectId = () => {
             return [...newItems]
         });
     };
+
+    // for submitting add task for "in progress"
+    const subbmitStuff = () => {
+        // bind input field data : two way binding
+        // pass BODY.stringify with binded data + status ('status:"in progress"')
+    }
+
     return (
         <div className={"row"}>
             {statuses.map(s => {
                 return (
                     <div key={s.status} className={"col-wrapper"}>
+                        <label for="newtask">Add new task..</label>
+                        <input type="text" id="newtask" name="newtask"/>
+                        <button type="submit">
+                        Submit</button>
                         <h2 className={"col-header"}>{s.status.toUpperCase()}</h2>
                         <DropWrapper onDrop={onDrop} status={s.status}>
                             <Col>

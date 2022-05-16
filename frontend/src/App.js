@@ -13,7 +13,6 @@ import SpecProject from "./pages/SpecProject/SpecProject";
 import ListOfProjects from "./components/ListOfProjects";
 import Navbar from "./components/Navbar"
 import Settings from "./pages/SettingsPage/Settings";
-import Tasks from "./pages/Tasks/Tasks";
 import './App.css';
 import ListOfTaskByProjectId from "./components/ListOfTaskByProjectId";
 
@@ -34,7 +33,6 @@ function App() {
         <Route path="/" element={<><Navbar/><ProtectedRoutes/></>}>
           <Route path="/dashboard" element={<DashboardHome/>} />
           <Route path="/settings" element={<Settings/>} />
-          <Route path="/tasks" element={<Tasks/>} />
           <Route path="/listofprojects" element={<ListOfProjects />} />
           <Route path="/project/:projectId/tasks" element={<ListOfTaskByProjectId />} />
         </Route>
