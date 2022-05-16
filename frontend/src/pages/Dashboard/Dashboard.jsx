@@ -1,25 +1,13 @@
+import React from "react";
 import ProjectContainer from "../../components/ProjectContainer";
 import { FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { request } from "../../utils/axios-util";
-import React, { useState } from 'react';
-import { useQuery } from "react-query";
-
-
 
 
 
 export default function DashboardHome() {
-  const fetchUser = (userId) => {
-    return request({ url: '/users/' + localStorage.getItem('user') })
-  }
-  
-  const userObject = JSON.parse(localStorage.getItem('userObject'))
-  
-      const { data } = useQuery([userObject], (userId) =>
-          fetchUser(userId)
-      );
-      console.log(data?.data.first_name, data?.data.last_name)
+ 
+
   return (
     <section>
       <div className="max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
