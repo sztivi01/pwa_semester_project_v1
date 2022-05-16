@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-//import { useMutation } from "react-query";
+//import axios from "axios";
 import { useQuery } from "react-query";
 import { request } from "../utils/axios-util";
 import Moment from "react-moment";
 import { FaTrashAlt } from "react-icons/fa";
-//import axios from "axios";
+
 
 const fetchProjectNames = () => {
-  //debugger;
   return request({ url: "/projects/" + localStorage.getItem("user") });
 };
 
@@ -17,6 +16,14 @@ const fetchProjectNames = () => {
     "https://stark-forest-32910.herokuapp.com/api/projects/:id"
   );
 };*/
+const userObject = JSON.parse(localStorage.getItem('userObject'))
+const handleOnClickDelete = async (e) => {
+  e.preventDefault();
+  request({ url: '/projects/:id' + localStorage.getItem('user'), method: "DELETE",data: userObject  }).then(() => {
+      alert("Deleted succesfully");
+     
+  })
+}
 
 export default function ProjectContainer() {
   const { isLoading, data } = useQuery("projectNames", fetchProjectNames);
@@ -26,23 +33,23 @@ export default function ProjectContainer() {
 
   return (
     <>
-      {data?.data.map((projects) => (
-        <div key={projects._id} className="projects">
+      {data?.data.map((project) => (
+        <div key={project._id} className="projects">
           <Link
-            to="#"
+            to="#"//{`/project/${project._id}/tasks`}
             className="relative block p-4 border border-gray-200 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-300 hover:ring-1 hover:ring-gray-200 bg-white"
           >
             <div className="grid-cols-3">
               <div className="my-5">
-                <h6 className="mt-2 mb-3 font-bold">{projects.name}</h6>
+                <h6 className="mt-2 mb-3 font-bold">{project.name}</h6>
 
                 <p className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
-                  {projects.description}
+                  {project.description}
                 </p>
                 <dl className="flex mt-6">
                   <div className="flex flex-col-reverse">
                     <dd className="text-xs text-gray-500">
-                      <Moment format="DD/MM/YYYY">{projects.date}</Moment>
+                      <Moment format="DD/MM/YYYY">{project.date}</Moment>
                     </dd>
                     <dt className="text-xs font-medium text-gray-600">
                       Created
@@ -50,12 +57,9 @@ export default function ProjectContainer() {
                   </div>
                 </dl>
               </div>
-              <div /*onClick={() => deleteProject(projects._id)} className="m-2"*/
-              >
-                {" "}
+              <div onClick={handleOnClickDelete} className="m-2">
+                <FaTrashAlt className="mb-5 text-2xl text-green-400 hover:text-black" />
               </div>
-              <FaTrashAlt className="mb-5 text-2xl text-green-400 hover:text-black" />
-
               <span className="absolute inset-x-0 bottom-3 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
             </div>
           </Link>

@@ -1,5 +1,4 @@
 import { useQuery } from "react-query";
-//import axios from "axios";
 import { request } from "../../utils/axios-util";
 import React, { useState, useEffect } from 'react';
 import avatarImg from "../../assets/avatar.jpg";

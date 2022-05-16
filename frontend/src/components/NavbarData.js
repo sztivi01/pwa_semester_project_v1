@@ -14,12 +14,6 @@ export const NavbarData = [
     cName: 'nav-text '
   },
   {
-    title: 'Tasks in Progress',
-    path: '/tasks',
-    icon: <FaIcons.FaTasks />,
-    cName: 'nav-text'
-  },
-  {
     title: 'Settings',
     path: '/settings',
     icon: <IoIcons.IoMdSettings />,
