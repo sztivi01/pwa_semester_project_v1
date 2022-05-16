@@ -63,15 +63,15 @@ export const UserData = () => {
                     >
                         <div className="flex items-center justify-center">
                             <div className="">
-                                <p>{user.first_name}</p>
+                                <h2 className="text-3xl font-bold sm:text-4xl mb-5">{user.first_name}</h2>
                             </div>
                             <div className="ml-1">
-                                <p>{user.last_name}</p>
+                                <h2 className="text-3xl font-bold sm:text-4xl mb-5">{user.last_name}</h2>
                             </div>
 
                         </div>
                         <div className="flex items-center justify-center">
-                            <p>{user.email}</p>
+                            <h2 className="text-3xl font-bold sm:text-4xl mb-5">{user.email}</h2>
                         </div>
                         <div
                             className="mb-16 flex items-center justify-center">
@@ -82,11 +82,6 @@ export const UserData = () => {
                             />
                         </div>
                         <div className="flex item-center justify-center w-[100%]">
-                            <button
-                                type="submit"
-                                className=" w-[150px] border rounded-lg py-3 bg-indigo-600 hover:bg-indigo-500 text-white">
-                                Edit
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -98,32 +93,28 @@ export const UserData = () => {
                                 type="email" placeholder="email"
                                 value={emailNew} onChange={(e) => setEmail(e.target.value)}
                             />
+                            <button
+                                onClick={handleOnSubmitEmail}
+                                type="submit"
+                                className="ml-5 w-[150px] border rounded-lg w-full py-3 bg-indigo-600 hover:bg-indigo-500 relative text-white">
+                                Save
+                            </button>
                         </div>
                     </div>
-                    <div className="flex items-center justify-center mr-16">
-                        <button
-                            onClick={handleOnSubmitEmail}
-                            type="submit"
-                            className="ml-5 w-[150px] border rounded-lg w-full py-3 bg-indigo-600 hover:bg-indigo-500 relative text-white">
-                            Save
-                        </button>
-                    </div>
-                </div>
-                <div className="flex items-center justify-center w-full mt-5">
-                    <div className="flex w-full h-full">
-                        <input
-                            className="h-[50px] w-[500px] border border-indigo-600 rounded-lg relative  p-2"
-                            type="password" placeholder="password"
-                            value={passwordNew} onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </div>
-                    <div className="flex items-center justify-center mr-16">
-                        <button
-                            onClick={handleOnSubmitPass}
-                            type="submit"
-                            className="ml-5 w-[150px] border rounded-lg w-full py-3 bg-indigo-600 hover:bg-indigo-500 relative text-white">
-                            Save
-                        </button>
+                    <div className="flex items-center justify-center w-full mt-5">
+                        <div className="flex w-full h-full">
+                            <input
+                                className="w-[500px] border border-indigo-600 rounded-lg relative  p-2"
+                                type="password" placeholder="password"
+                                value={passwordNew} onChange={(e) => setPassword(e.target.value)}
+                            />
+                            <button
+                                onClick={handleOnSubmitPass}
+                                type="submit"
+                                className="ml-5 w-[150px] border rounded-lg w-full py-3 bg-indigo-600 hover:bg-indigo-500 relative text-white">
+                                Save
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

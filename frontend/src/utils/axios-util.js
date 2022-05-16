@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const client = axios.create({ baseURL: 'https://stark-forest-32910.herokuapp.com/api'})
+const client = axios.create({ baseURL: 'http://localhost:4000/api'})
 
 export const request = ({ ...options }) => {
     let token = localStorage.getItem('accessToken')

@@ -34,11 +34,12 @@ export default function Loginn() {
         buttons: false,
         timer: 2000,
       }).then((value) => {
+<<<<<<< Updated upstream
+=======
+        //debugger;
+>>>>>>> Stashed changes
         localStorage.setItem("accessToken", res["data"].token);
         localStorage.setItem("user", res["data"].userId);
-        localStorage.setItem("email", res.data.email);
-        /*localStorage.setItem("firstName", res["data"].first_name);
-        localStorage.setItem("lastName", res["data"].last_name);*/
         localStorage.setItem("userObject", JSON.stringify(res.data));
         window.location.href = "/dashboard";
       });
