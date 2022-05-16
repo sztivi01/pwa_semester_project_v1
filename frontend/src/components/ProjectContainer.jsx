@@ -14,42 +14,44 @@ export default function ProjectContainer() {
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
- 
+
   return (
     <>
-    
-      {data?.data.map((projects) => {
+
+      {data?.data.map((project) => {
         return (
           <>
-          <Link
-      to="/specproject"
-      className="relative block p-4 border border-gray-200 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-300 hover:ring-1 hover:ring-gray-200 bg-white"
-    >
-            <div className="grid-cols-3">
-              <div className="my-5">
-                <h6 key={projects.name} className="mt-2 mb-3 font-bold">
-                  {projects.name}
-                </h6>
+            <div key={project._id}>
+              <Link
+                to={`/project/${project._id}/tasks`}
+                className="relative block p-4 border border-gray-200 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-300 hover:ring-1 hover:ring-gray-200 bg-white"
+              >
+                <div className="grid-cols-3">
+                  <div className="my-5">
+                    <h6 key={project.name} className="mt-2 mb-3 font-bold">
+                      {project.name}
+                    </h6>
 
-                <p key={projects.description} className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
-                  {projects.description}
-                </p>
-                <dl className="flex mt-6">
-                  <div className="flex flex-col-reverse">
-                    <dd key={projects.date} className="text-xs text-gray-500"><Moment format="DD/MM/YYYY">{projects.date}</Moment></dd>
-                    <dt className="text-xs font-medium text-gray-600">
-                      Created
-                    </dt>
+                    <p key={project.description} className="hidden sm:mt-1 sm:text-sm sm:text-gray-600 sm:block">
+                      {project.description}
+                    </p>
+                    <dl className="flex mt-6">
+                      <div className="flex flex-col-reverse">
+                        <dd key={project.date} className="text-xs text-gray-500"><Moment format="DD/MM/YYYY">{project.date}</Moment></dd>
+                        <dt className="text-xs font-medium text-gray-600">
+                          Created
+                        </dt>
+                      </div>
+                    </dl>
                   </div>
-                </dl>
-              </div>
-              <span className="absolute inset-x-0 bottom-3 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
+                  <span className="absolute inset-x-0 bottom-3 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
+                </div>
+              </Link>
             </div>
-            </Link>
-            </>
+          </>
         );
       })}
-    
+
     </>
   );
 }
