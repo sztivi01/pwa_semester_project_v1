@@ -9,12 +9,10 @@ import Registration from "./routes/Registration";
 import DashboardHome from "./pages/Dashboard/Dashboard";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import SpecProject from "./pages/SpecProject/SpecProject";
-import ListOfProjects from "./components/ListOfProjects";
 import Navbar from "./components/Navbar"
 import Settings from "./pages/SettingsPage/Settings";
 import './App.css';
-import ListOfTaskByProjectId from "./components/ListOfTaskByProjectId";
+import ListOfTaskByProjectId from "./pages/SpecProject/ListOfTaskByProjectId";
 
 const queryClient = new QueryClient();
 function App() {
@@ -33,7 +31,6 @@ function App() {
         <Route path="/" element={<><Navbar/><ProtectedRoutes/></>}>
           <Route path="/dashboard" element={<DashboardHome/>} />
           <Route path="/settings" element={<Settings/>} />
-          <Route path="/listofprojects" element={<ListOfProjects />} />
           <Route path="/project/:projectId/tasks" element={<ListOfTaskByProjectId />} />
         </Route>
         </Routes>

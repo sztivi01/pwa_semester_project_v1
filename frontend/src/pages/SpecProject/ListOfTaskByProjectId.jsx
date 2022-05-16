@@ -1,12 +1,12 @@
 import { useQuery } from "react-query";
-import { request } from "../utils/axios-util";
+import { request } from "../../utils/axios-util";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import Item from "../components/Item";
-import DropWrapper from "../components/DropWrapper";
-import Col from "../components/Col";
-import { statuses } from "../data";
-import '../pages/SpecProject/SpecProject.css';
+import Item from "../../components/Item";
+import DropWrapper from "../../components/DropWrapper";
+import Col from "../../components/Col";
+import { statuses } from "../../data";
+import './SpecProject.css';
 
 
 
@@ -73,10 +73,6 @@ export const ListOfTaskByProjectId = () => {
             {statuses.map(s => {
                 return (
                     <div key={s.status} className={"col-wrapper"}>
-                        <label for="newtask">Add new task..</label>
-                        <input type="text" id="newtask" name="newtask"/>
-                        <button type="submit">
-                        Submit</button>
                         <h2 className={"col-header"}>{s.status.toUpperCase()}</h2>
                         <DropWrapper onDrop={onDrop} status={s.status}>
                             <Col>
