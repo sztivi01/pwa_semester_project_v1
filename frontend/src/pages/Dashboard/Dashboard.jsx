@@ -13,10 +13,8 @@ export default function DashboardHome() {
       <div className="max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-16 lg:items-center place-items-center">
           <div className="max-w-lg mx-auto text-center lg:text-left lg:mx-0">
-            <h2 className="text-3xl font-bold sm:text-4xl">
-              Hi <p>{data?.data.first_name}</p><p>{data?.data.last_name}</p> !
-            </h2>
-
+            <h2 className="text-3xl font-bold sm:text-4xl">Hi {localStorage.getItem('firstName')} !</h2>
+            
             <Link
               to="/specproject"
               className="inline-flex items-center px-8 py-3 mt-8 text-white bg-indigo-600 border border-indigo-600 rounded hover:bg-transparent hover:text-indigo-600 active:text-indigo-500 focus:outline-none focus:ring"
