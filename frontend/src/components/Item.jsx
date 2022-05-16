@@ -1,25 +1,25 @@
- import React,{Fragment,useState,useRef} from 'react';
- import {useDrag,useDrop} from 'react-dnd';
- import Window from "./Window";
- import ITEM_TYPE from "../data/types";
+import React, { Fragment, useState, useRef } from 'react';
+import { useDrag, useDrop } from 'react-dnd';
+import Window from "./Window";
+import ITEM_TYPE from "../data/types";
+import { statuses } from '../data';
 
+const Item = ({ item, index, moveItem, status }) => {
+    const ref = useRef(null);
 
- const Item = ({item , index, moveItem , status }) => {
-     const ref = useRef(null);
-     
-     const [, drop ] = useDrop({
-         accept:ITEM_TYPE,
-         hover(item,monitor){
-            if(!ref.current){
-                return;
+    const [, drop] = useDrop({
+        accept: ITEM_TYPE,
+        hover(item, monitor) {
+            if (!ref.current) {
+                return
             }
             const dragIndex = item.index;
             const hoverIndex = index;
 
-
-            if(dragIndex === hoverIndex){
-                return;
+            if (dragIndex === hoverIndex) {
+                return
             }
+
             const hoveredRect = ref.current.getBoundingClientRect();
             const hoverMiddleY = (hoveredRect.bottom - hoveredRect.top) / 2;
             const mousePosition = monitor.getClientOffset();
@@ -34,48 +34,47 @@
             }
             moveItem(dragIndex, hoverIndex);
             item.index = hoverIndex;
-
-         }
-
-     });
-     const [{isDragging},drag] = useDrag({
-         type:ITEM_TYPE,
-         item:{...item,index},
-         collect:monitor =>({
-             isDragging:monitor.isDragging()
-         })
-
+        },
     });
-    const [show,setShow] = useState(false);
 
-    const onOpen  = () => setShow(true);
+    const [{ isDragging }, drag] = useDrag({
+        item: { ...item, index },
+        type: ITEM_TYPE,
+        collect: monitor => ({
+            isDragging: monitor.isDragging()
+        })
+    });
 
-    const onClose = () =>setShow(false);
+    const [show, setShow] = useState(false);
 
-    drag(drag(ref));
-    return ( 
+    const onOpen = () => setShow(true);
+
+    const onClose = () => setShow(false);
+
+    drag(drop(ref));
+
+    const currentStatus = statuses.find(s => s.status === item.status)
+
+    return (
         <Fragment>
             <div
                 ref={ref}
-                style={{opacity:isDragging ? 0: 1}}
+                style={{ opacity: isDragging ? 0 : 1 }}
                 className={"item"}
                 onClick={onOpen}
             >
-                <div className={"color-bar"} style={{backgroundColor:status.color}}/>
+                <div className={"color-bar"} style={{ backgroundColor: status.color }} />
                 <p className={"item-title"}>{item.title}</p>
-                <p className={"item-status"}>{item.icon}</p>
-                <p className={"item-content"}>{item.content}</p>
-
+                <p className={"item-status"}>{currentStatus.icon}</p>
             </div>
             <Window
                 item={item}
                 onClose={onClose}
                 show={show}
+                currentStatus={currentStatus}
             />
-            </Fragment>
-            
-    )
+        </Fragment>
+    );
+};
 
-
- }
- export default Item;
+export default Item;
