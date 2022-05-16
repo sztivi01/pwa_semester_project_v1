@@ -2,7 +2,7 @@ import ProjectContainer from "../../components/ProjectContainer";
 import { FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { request } from "../../utils/axios-util";
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from "react-query";
 
 
@@ -17,7 +17,7 @@ export default function DashboardHome() {
       const { data } = useQuery([userObject], (userId) =>
           fetchUser(userId)
       );
-      console.log(data?.data.first_name, data?.data.last_name)
+      //console.log(data?.data.first_name)
 
   return (
     <section>
@@ -25,7 +25,7 @@ export default function DashboardHome() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-16 lg:items-center place-items-center">
           <div className="max-w-lg mx-auto text-center lg:text-left lg:mx-0">
           <h2 className="text-3xl font-bold sm:text-4xl">
-              Hi <p>{data?.data.first_name}</p><p>{data?.data.last_name}</p> !
+              Hi {data?.data.first_name} !
             </h2>
             
             <Link

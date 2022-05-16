@@ -59,6 +59,9 @@ export default function ProjectContainer() {
                       </div>
                     </dl>
                   </div>
+                  <div onClick={handleOnClickDelete} className="m-2">
+                <FaTrashAlt className="mb-5 text-2xl text-green-400 hover:text-black" />
+              </div>
                   <span className="absolute inset-x-0 bottom-3 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
                 </div>
               </Link>

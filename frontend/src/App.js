@@ -9,7 +9,6 @@ import Registration from "./routes/Registration";
 import DashboardHome from "./pages/Dashboard/Dashboard";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import SpecProject from "./pages/SpecProject/SpecProject";
 import ListOfProjects from "./components/ListOfProjects";
 import Navbar from "./components/Navbar"
 import Settings from "./pages/SettingsPage/Settings";
