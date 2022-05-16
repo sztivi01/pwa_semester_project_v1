@@ -36,9 +36,10 @@ export default function Loginn() {
       }).then((value) => {
         localStorage.setItem("accessToken", res["data"].token);
         localStorage.setItem("user", res["data"].userId);
-        localStorage.setItem("email", res["data"].email);
-        localStorage.setItem("firstName", res["data"].first_name);
-        localStorage.setItem("lastName", res["data"].last_name);
+        localStorage.setItem("email", res.data.email);
+        /*localStorage.setItem("firstName", res["data"].first_name);
+        localStorage.setItem("lastName", res["data"].last_name);*/
+        localStorage.setItem("userObject", JSON.stringify(res.data));
         window.location.href = "/dashboard";
       });
     } else if (res["error"] !== null) {
