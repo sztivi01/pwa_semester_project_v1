@@ -5,18 +5,18 @@ import { useQuery } from "react-query";
 import { request } from "../utils/axios-util";
 import Moment from "react-moment";
 import { FaTrashAlt } from "react-icons/fa";
-import axios from "axios";
 //import axios from "axios";
 
 const fetchProjectNames = () => {
+  //debugger;
   return request({ url: "/projects/" + localStorage.getItem("user") });
 };
 
-const deleteProject = () => {
+/*const deleteProject = () => {
   return axios.delete(
     "https://stark-forest-32910.herokuapp.com/api/projects/:id"
   );
-};
+};*/
 
 export default function ProjectContainer() {
   const { isLoading, data } = useQuery("projectNames", fetchProjectNames);
@@ -50,9 +50,12 @@ export default function ProjectContainer() {
                   </div>
                 </dl>
               </div>
-              <div onClick={() => deleteProject(projects._id)} className="m-2">
-                <FaTrashAlt className="mb-5 text-2xl text-green-400 hover:text-black" />
+              <div /*onClick={() => deleteProject(projects._id)} className="m-2"*/
+              >
+                {" "}
               </div>
+              <FaTrashAlt className="mb-5 text-2xl text-green-400 hover:text-black" />
+
               <span className="absolute inset-x-0 bottom-3 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
             </div>
           </Link>

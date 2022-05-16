@@ -22,7 +22,6 @@ export default function Loginn() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await loginUser({
@@ -34,6 +33,7 @@ export default function Loginn() {
         buttons: false,
         timer: 2000,
       }).then((value) => {
+        debugger;
         localStorage.setItem("accessToken", res["data"].token);
         localStorage.setItem("user", res["data"].userId);
         localStorage.setItem("email", res["data"].email);
@@ -86,7 +86,7 @@ export default function Loginn() {
             type="submit"
             className="border rounded-lg w-full py-3 mt-8 font-bold text-lg text-white bg-indigo-600 border-indigo-600 hover:bg-indigo-400  active:text-indigo-500 focus:outline-none focus:ring relative "
           >
-            Login  
+            Login
           </button>
           <p className="flex items-center mt-2">
             <input className="mr-2" type="checkbox" />
