@@ -14,16 +14,16 @@ const Window = ({ show, onClose, item, currentStatus }) => {
         >
 
             <div className={"close-btn-ctn"}>
-                <h1 style={{ flex: "1 90%" }}>{item.title}</h1>
+                <h1 style={{ flex: "1 90%",fontWeight: 'bold' }}>{item.title}</h1>
                 <button onClick={onClose} className={"close-btn"}>X</button>
             </div>
 
             <div>
-                <h2 id='description'>Description</h2>
-                <p>{item.content}</p>
-                <h2>Status</h2>
+                <h2 id='description' style={{fontWeight: 'bold'}}>Task description:</h2>
+                <p>{item.taskDescription}</p>
+                <h2 style= {{fontWeight: 'bold'}}>Status:</h2>
                 <p>
-                    {currentStatus.icon}
+                    {currentStatus.icon}-{currentStatus.status}
                 </p>
             </div>
             <div>
