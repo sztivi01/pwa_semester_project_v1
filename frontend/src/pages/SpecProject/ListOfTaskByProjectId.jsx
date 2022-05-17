@@ -63,13 +63,16 @@ export const ListOfTaskByProjectId = () => {
         });
     };
 
-
-
+   /* // for submitting add task for "in progress"
+    const subbmitStuff = () => {
+        // bind input field data : two way binding
+        // pass BODY.stringify with binded data + status ('status:"in progress"')
+    }
+*/
     return (
         <div className={"row"}>
-            {statuses.map(s => {
-                return (
-
+            {statuses.map(s => (
+                
                     <div key={s.status} className={"col-wrapper"}>
                         <SubbmitCard 
                         label="Add new card.." 
@@ -88,8 +91,8 @@ export const ListOfTaskByProjectId = () => {
 
                         </DropWrapper>
                     </div>
-                );
-            })}
+                
+            ))}
 
         </div>
     )

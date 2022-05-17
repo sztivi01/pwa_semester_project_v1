@@ -22,10 +22,8 @@ export const UserData = () => {
     useEffect(() => {
         let user = data?.data
         console.log(user)
-        // do some checking here to ensure data exist
         if (user) {
             console.log(user)
-            // mutate data if you need to
             setUser(user)
         }
     }, [data])
@@ -55,71 +53,62 @@ export const UserData = () => {
 
     return (
         <>
-            <div className="flex w-full h-screen">
+            <div className="pt-32 grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-16 lg:items-center place-items-center lg:mt-0">
                 <div className="flex items-center justify-center w-[50%] h-full">
-                    <div
-                        className="w-[500px] h-[full]"
-                    >
+                    <div className="max-w-lg mx-auto text-center lg:text-left lg:mx-0" >
                         <div className="flex items-center justify-center">
                             <div className="">
-                                <p>{user.first_name}</p>
+                                <h2 className="mb-5 text-3xl font-bold sm:text-4xl"><p>{user.first_name}</p></h2>
                             </div>
                             <div className="ml-1">
-                                <p>{user.last_name}</p>
+                                <h2 className="mb-5 text-3xl font-bold sm:text-4xl"><p>{user.last_name}</p></h2>
                             </div>
 
                         </div>
                         <div className="flex items-center justify-center">
-                            <p>{user.email}</p>
+                            <h2 className="mb-5 text-3xl font-bold sm:text-4xl"><p>{user.email}</p></h2>
                         </div>
                         <div
-                            className="mb-16 flex items-center justify-center">
+                            className=" flex items-center justify-center">
                             <img
-                                className="mb-16 flex items-center justify-center rounded-full w-[300px]  "
+                                className="flex items-center justify-center rounded-full w-[300px]  "
                                 src={avatarImg}
                                 alt="/"
                             />
                         </div>
-                        <div className="flex item-center justify-center w-[100%]">
-                            <button
-                                type="submit"
-                                className=" w-[150px] border rounded-lg py-3 bg-indigo-600 hover:bg-indigo-500 text-white">
-                                Edit
-                            </button>
-                        </div>
                     </div>
                 </div>
-                <div className="flex flex-col items-center justify-center w-[50%] h-full">
-                    <div className="flex items-center justify-center w-full mt-5">
-                        <div className="flex w-full h-full">
+                <div className="flex flex-col items-center justify-center w-[100vw] h-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-4 lg:items-center place-items-center">
+                        <div className="max-w-lg mx-auto text-center lg:text-left lg:mx-0">
                             <input
-                                className="h-[50px] w-[500px] border border-indigo-600 rounded-lg relative  p-2"
+                                className="h-[50px] w-96 border border-indigo-600 rounded-lg relative"
                                 type="email" placeholder="email"
                                 value={emailNew} onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
-                        <div className="flex items-center justify-center mr-16">
+                        <div className="flex items-center justify-center">
                             <button
                                 onClick={handleOnSubmitEmail}
                                 type="submit"
-                                className="ml-5 w-[150px] border rounded-lg w-full py-3 bg-indigo-600 hover:bg-indigo-500 relative text-white">
+                                className="w-[150px] border rounded-lg w-full py-3 bg-indigo-600 hover:bg-indigo-500 relative text-white">
                                 Save
                             </button>
                         </div>
                     </div>
-                    <div className="flex items-center justify-center w-full mt-5">
-                        <div className="flex w-full h-full">
+                    <div className="grid pt-2 grid-cols-1 lg:grid-cols-2 gap-y-4 lg:items-center place-items-center">
+                        <div className="flex h-full">
                             <input
-                                className="h-[50px] w-[500px] border border-indigo-600 rounded-lg relative  p-2"
+                                className="h-[50px] w-96 border border-indigo-600 rounded-lg relative  p-2"
                                 type="password" placeholder="password"
                                 value={passwordNew} onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
-                        <div className="flex items-center justify-center mr-16">
+                        <div className="flex items-center justify-center">
                             <button
                                 onClick={handleOnSubmitPass}
                                 type="submit"
-                                className="ml-5 w-[150px] border rounded-lg w-full py-3 bg-indigo-600 hover:bg-indigo-500 relative text-white">
+                                className="w-[150px] border rounded-lg w-full py-3 bg-indigo-600 hover:bg-indigo-500 relative text-white">
                                 Save
                             </button>
                         </div>
@@ -129,115 +118,5 @@ export const UserData = () => {
         </>
 
     )
-
-    /*<div className="flex items-center justify-center w-full mt-5">
-                <div className="flex w-full h-full">
-                    <input
-                        className="h-[50px] w-[500px] border border-indigo-600 rounded-lg relative  p-2"
-                        type="password" placeholder="password"
-                        value={passwordNew} onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <button
-                        onClick={handleOnSubmitPass}
-                        type="submit"
-                        className="ml-5 w-[150px] border rounded-lg w-full py-3 bg-indigo-600 hover:bg-indigo-500 relative text-white">
-                        Save
-                    </button>
-                </div>
-                <div className="flex items-center justify-center mr-16">
-                    
-                </div>
-            </div>*/
-
-    /*import React from "react";
-    import avatarImg from "../../assets/avatar.jpg";
-    import TextFieldAvatar from "../../components/TextFieldAvatar";
-    import { FaLock } from "react-icons/fa";
-    import { MdEmail } from "react-icons/md";
-    
-    
-    const userObject = localStorage.getItem('userObject')
-    
-    
-    
-    export default function Settings(props) {
-        
-        return(
-         <div className="flex w-full h-screen">
-             <div className="flex items-center justify-center w-[50%] h-full">
-             <div
-              className="w-[500px] h-[full]"
-            >
-            <div className="flex items-center justify-center">
-                  <div className="">
-                     <p></p>
-                  </div>
-                <div className="ml-1">
-                   <p></p>
-                </div>
-    
-            </div>
-                  <div className="flex items-center justify-center">
-                    <p>{ user.email}</p>
-                  </div>
-            <div 
-            className="mb-16 flex items-center justify-center">
-              <img
-                className="mb-16 flex items-center justify-center rounded-full w-[300px]  "
-                src={avatarImg}
-                alt="/"
-             />
-             </div>   
-             <div className="flex item-center justify-center w-[100%]">
-             <button
-                type="submit"
-                className=" w-[150px] border rounded-lg py-3 bg-indigo-600 hover:bg-indigo-500 text-white">
-                Edit
-             </button>
-             </div>
-            </div>
-             </div>
-             <div className="flex flex-col items-center justify-center w-[50%] h-full">
-                 <div className="flex items-center justify-center w-full">
-                  <div className="flex w-full h-full">
-                    <TextFieldAvatar
-                        onChange={(e) => setEmail(e.target.value)}
-                        label="Email"
-                        defaultValue= "hello"
-                        type={"text"}
-                        icon={<MdEmail className="ml-1 mr-2 mt-1" />}
-                    />
-                    </div>
-                    <div className="flex items-center justify-center mr-16">
-                        <button
-                            onClick={handleOnSubmitEmail}
-                            type="submit"
-                            className="ml-5 w-[150px] border rounded-lg w-full py-3 bg-indigo-600 hover:bg-indigo-500 relative text-white">
-                            Save
-                        </button>
-                    </div>
-                </div>
-                <div className="flex items-center justify-center w-full mt-5">
-                  <div className="flex w-full h-full">
-                    <TextFieldAvatar
-                        onChange={(e) => setPassword(e.target.value)}
-                        label="password"
-                        type={"password"}
-                        icon={<FaLock className="ml-1 mr-2 mt-1" />}
-                    />
-                    </div>
-                    <div className="flex items-center justify-center mr-16">
-                        <button
-                            onClick={handleOnSubmitPass}
-                            type="submit"
-                            className="ml-5 w-[150px] border rounded-lg w-full py-3 bg-indigo-600 hover:bg-indigo-500 relative text-white">
-                            Save
-                        </button>
-                    </div>
-                </div>
-             </div>
-         </div>
-        );*/
-
 }
 export default UserData;

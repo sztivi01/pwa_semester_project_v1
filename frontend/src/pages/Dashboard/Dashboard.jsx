@@ -17,6 +17,7 @@ export default function DashboardHome() {
       const { data } = useQuery([userObject], (userId) =>
           fetchUser(userId)
       );
+      
 
   return (
     <section>
