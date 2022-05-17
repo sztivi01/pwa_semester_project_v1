@@ -7,6 +7,7 @@ import DropWrapper from "../../components/DropWrapper";
 import Col from "../../components/Col";
 import { statuses } from "../../data";
 import './SpecProject.css';
+import SubbmitCard from './SubbmitCard';
 
 
 
@@ -73,6 +74,13 @@ export const ListOfTaskByProjectId = () => {
             {statuses.map(s => (
                 
                     <div key={s.status} className={"col-wrapper"}>
+                        <SubbmitCard 
+                        label="Add new card.." 
+                        type={"text"} 
+                        nameButton="Submit new card"
+                        status={s.status}
+                        projectId={projectId}
+                         />
                         <h2 className={"col-header"}>{s.status.toUpperCase()}</h2>
                         <DropWrapper onDrop={onDrop} status={s.status}>
                             <Col>
