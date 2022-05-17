@@ -7,6 +7,7 @@ import DropWrapper from "../../components/DropWrapper";
 import Col from "../../components/Col";
 import { statuses } from "../../data";
 import './SpecProject.css';
+import SubbmitCard from './SubbmitCard';
 
 
 
@@ -62,17 +63,21 @@ export const ListOfTaskByProjectId = () => {
         });
     };
 
-    // for submitting add task for "in progress"
-    const subbmitStuff = () => {
-        // bind input field data : two way binding
-        // pass BODY.stringify with binded data + status ('status:"in progress"')
-    }
+
 
     return (
         <div className={"row"}>
             {statuses.map(s => {
                 return (
+
                     <div key={s.status} className={"col-wrapper"}>
+                        <SubbmitCard 
+                        label="Add new card.." 
+                        type={"text"} 
+                        nameButton="Submit new card"
+                        status={s.status}
+                        projectId={projectId}
+                         />
                         <h2 className={"col-header"}>{s.status.toUpperCase()}</h2>
                         <DropWrapper onDrop={onDrop} status={s.status}>
                             <Col>
