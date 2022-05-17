@@ -3,27 +3,29 @@ import { Link } from "react-router-dom";
 //import axios from "axios";
 import { useQuery } from "react-query";
 import { request } from "../utils/axios-util";
+import swal from "sweetalert";
 import Moment from "react-moment";
 import { FaTrashAlt } from "react-icons/fa";
+import {BsFillArrowRightSquareFill} from "react-icons/bs";
 
 
 const fetchProjectNames = () => {
   return request({ url: "/projects/" + localStorage.getItem("user") });
 };
 
-/*const deleteProject = () => {
-  return axios.delete(
-    "https://stark-forest-32910.herokuapp.com/api/projects/:id"
-  );
-};*/
-const userObject = JSON.parse(localStorage.getItem('userObject'))
-const handleOnClickDelete = async (e) => {
-  e.preventDefault();
-  request({ url: '/projects/:id' + localStorage.getItem('user'), method: "DELETE",data: userObject  }).then(() => {
-      alert("Deleted succesfully");
-     
+function handleOnClickDelete(projectId)  {
+  request({ url: `/projects/${projectId}`, method: 'DELETE'}).then(() => {
+    swal( 'Success!', 'Project was deleted.','success',
+    {
+      buttons: false,
+      timer: 2000,
+    }).then(() => {
+      window.location.href = "/dashboard";
+    })
+    
   })
-}
+  }
+
 
 export default function ProjectContainer() {
   const { isLoading, data } = useQuery("projectNames", fetchProjectNames);
@@ -37,8 +39,7 @@ export default function ProjectContainer() {
       {data?.data.map((project) => ( 
         
             <div key={project._id}>
-              <Link
-                to={`/project/${project._id}/tasks`}
+              <div
                 className="relative block p-4 border border-gray-200 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-300 hover:ring-1 hover:ring-gray-200 bg-white"
               >
                 <div className="grid-cols-3">
@@ -59,12 +60,18 @@ export default function ProjectContainer() {
                       </div>
                     </dl>
                   </div>
-                  <div onClick={handleOnClickDelete} className="m-2">
-                <FaTrashAlt className="mb-5 text-2xl text-green-400 hover:text-black" />
-              </div>
+                  <button onClick={() => handleOnClickDelete(project._id)} className="mb-5">
+                <FaTrashAlt className="mr-2 text-2xl text-green-400 hover:text-black" />
+              </button>
+              <Link to={`/project/${project._id}/tasks`}
+              className="inline-flex absolute bottom-8 right-4 py-1 text-sm font-light text-indigo-600 transition-colors bg-white border border-indigo-600 rounded hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:opacity-75">
+                  <BsFillArrowRightSquareFill className="w-5 h-5 ml-2" />
+                  <span className="text-sm font-bold mr-1">Go</span>
+               
+                </Link>
                   <span className="absolute inset-x-0 bottom-3 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
                 </div>
-              </Link>
+              </div>
             </div>
           
         
