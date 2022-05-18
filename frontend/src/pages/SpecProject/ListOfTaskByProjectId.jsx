@@ -18,8 +18,7 @@ const fetchTasksByProjectId = (projectId) => {
 export const ListOfTaskByProjectId = () => {
     const [items, setItems] = useState([]);
     const { projectId } = useParams();
-    const { isLoading, data } = useQuery('projectNames', () => fetchTasksByProjectId(projectId));
-
+    const { isLoading,data,refetch } = useQuery('projectNames', () => fetchTasksByProjectId(projectId),{manual:true});
 
     useEffect(() => {
         let tasks = data?.data
@@ -62,6 +61,7 @@ export const ListOfTaskByProjectId = () => {
             return [...newItems]
         });
     };
+    const buttonClicked =() =>  {refetch()}
 
    /* // for submitting add task for "in progress"
     const subbmitStuff = () => {
@@ -80,6 +80,7 @@ export const ListOfTaskByProjectId = () => {
                         nameButton="Submit new card"
                         status={s.status}
                         projectId={projectId}
+                        buttonClicked={buttonClicked}
                          />
                         <h2 className={"col-header"}>{s.status.toUpperCase()}</h2>
                         <DropWrapper onDrop={onDrop} status={s.status}>
