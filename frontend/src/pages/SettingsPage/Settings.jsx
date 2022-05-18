@@ -5,57 +5,55 @@ import avatarImg from "../../assets/avatar.jpg";
 import { BsCheckLg } from "react-icons/bs";
 
 const fetchUser = (userId) => {
-  return request({ url: "/users/" + localStorage.getItem("user") });
-};
+    return request({ url: '/users/' + localStorage.getItem('user') })
+}
 
-const userObject = JSON.parse(localStorage.getItem("userObject"));
+//const userObject = JSON.parse(localStorage.getItem('userObject'))
+
+const fname = localStorage.getItem('firstName');
+const lname = localStorage.getItem('lastName');
+const email = localStorage.getItem('email')
 
 export const UserData = () => {
-  const { data } = useQuery([userObject], (userId) => fetchUser(userId));
-  console.log(data);
+    const { data } = useQuery([ email, fname, lname, localStorage.getItem('user')], (userId) => 
+    fetchUser(userId)       
+);
+    console.log()
 
-  const [user, setUser] = useState({});
-  const [emailNew, setEmail] = useState("");
-  const [passwordNew, setPassword] = useState("");
-  useEffect(() => {
-    let user = data?.data;
-    console.log(user);
-    if (user) {
-      console.log(user);
-      setUser(user);
+    const [user, setUser] = useState({});
+    const [emailNew, setEmail] = useState("");
+    const [passwordNew, setPassword] = useState("");
+    useEffect(() => {
+        let user = data?.data
+        console.log(user)
+        if (user) {
+            console.log(user)
+            setUser(user)
+        }
+    }, [data])
+
+    const handleOnSubmitEmail = async (e) => {
+        e.preventDefault();
+        if (emailNew != null) {
+            user.email = emailNew
+        }
+        request({ url: '/users/' + localStorage.getItem('user'), method: "PUT", data: user }).then(() => {
+            alert("E-mail updated succesfully");
+            setEmail("");
+        })
     }
-  }, [data]);
 
-  const handleOnSubmitEmail = async (e) => {
-    e.preventDefault();
-    if (emailNew != null) {
-      userObject.email = emailNew;
+    const handleOnSubmitPass = async (e) => {
+        e.preventDefault();
+        if (passwordNew != null) {
+            user.password = passwordNew
+        }
+        request({ url: '/users/' + localStorage.getItem('user'), method: "PUT", data: user }).then(() => {
+            alert("Password updated succesfully");
+            setPassword("");
+        })
+
     }
-    request({
-      url: "/users/" + localStorage.getItem("user"),
-      method: "PUT",
-      data: userObject,
-    }).then(() => {
-      alert("E-mail updated succesfully");
-      setEmail("");
-    });
-  };
-
-  const handleOnSubmitPass = async (e) => {
-    e.preventDefault();
-    if (passwordNew != null) {
-      userObject.password = passwordNew;
-    }
-    request({
-      url: "/users/" + localStorage.getItem("user"),
-      method: "PUT",
-      data: userObject,
-    }).then(() => {
-      alert("Password updated succesfully");
-      setPassword("");
-    });
-  };
-
   return (
     <>
     
