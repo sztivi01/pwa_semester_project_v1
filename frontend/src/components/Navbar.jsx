@@ -44,7 +44,7 @@ function Navbar() {
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>
                     {item.icon}
-                    <span>{item.title}</span>
+                    <span className="ml-4">{item.title}</span>
                   </Link>
                 </li>
               );
@@ -52,11 +52,18 @@ function Navbar() {
             <li onClick={logOut} className="nav-text">
               <a href="/login">
                 <IoIcons.IoMdLogOut />
-                <span>Logout</span>
+                <span className="ml-4">Logout</span>
               </a>
-            </li>
+            </li>  
             <div className="my-4 mx-3 border-b border-slate-400 "></div>
-            <NavbarProjectNames />
+            <div className="relative">
+              <div className="overflow-auto h-96">
+                 <NavbarProjectNames />
+              </div>
+           
+          
+            </div>
+            
           </ul>
         </nav>
       </IconContext.Provider>

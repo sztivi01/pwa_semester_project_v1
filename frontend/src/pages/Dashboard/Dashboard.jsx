@@ -32,13 +32,13 @@ export default function DashboardHome() {
             >
               <FaPlus className="w-5 h-5" />
 
-              <span className="text-sm font-medium"> New Project </span>
+              <span className="text-sm font-medium ml-4"> New Project </span>
             </Link>
           </div>
           <div className="place-content-center">
             <p className="text-xl mb-4 ml-1">Your Projects</p>
 
-            <div className="grid grid-cols-3 gap-4 sm:grid-cols-3 bg-slate-100 p-7 rounded-xl">
+            <div className="grid grid-cols-3 gap-4 sm:grid-cols-3  bg-slate-100 p-7 rounded-xl">
               <ProjectContainer />
             </div>
           </div>

@@ -8,7 +8,7 @@ import "../index.css"
 export const NavbarData = [
   
   {
-    title: 'Home',
+    title: 'Dashboard',
     path: '/dashboard',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text '

@@ -40,8 +40,9 @@ export default function ProjectContainer() {
         
             <div key={project._id}>
               <div
-                className="relative block p-4 border border-gray-200 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-300 hover:ring-1 hover:ring-gray-200 bg-white"
+                className="relative block p-4 border overflow-hidden border-gray-200 shadow-sm rounded-lg focus:outline-none focus:ring hover:border-gray-300 hover:ring-1 hover:ring-gray-200 bg-white"
               >
+                <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
                 <div className="grid-cols-3">
                   <div className="my-5">
                     <h6 key={project.name} className="mt-2 mb-3 font-bold">
@@ -66,10 +67,13 @@ export default function ProjectContainer() {
               <Link to={`/project/${project._id}/tasks`}
               className="inline-flex absolute bottom-8 right-4 py-1 text-sm font-light text-indigo-600 transition-colors bg-white border border-indigo-600 rounded hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:opacity-75">
                   <BsFillArrowRightSquareFill className="w-5 h-5 ml-2" />
-                  <span className="text-sm font-bold mr-1">Go</span>
+                  <span className="text-sm font-bold mr-1 ml-2">Go</span>
                
                 </Link>
-                  <span className="absolute inset-x-0 bottom-3 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
+              
+                  
+                
+                  
                 </div>
               </div>
             </div>

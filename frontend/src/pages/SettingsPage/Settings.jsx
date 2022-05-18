@@ -87,7 +87,7 @@ export const UserData = () => {
                 {user.first_name}'s Profile!
               </h1>
               <div className="max-w-lg mx-auto text-end">
-                <div className="relative block p-4 border bg-slate-100 border-gray-200 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-300 hover:ring-1 hover:ring-gray-200">
+                <div className="relative block overflow-hidden p-4 border bg-slate-100 border-gray-200 shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-300 hover:ring-1 hover:ring-gray-200">
                   <label className="text-gray-400">Full Name</label>
                   <h2 className="mb-5 text-lg font-bold sm:text-xl">
                     {user.first_name} {user.last_name}
@@ -139,7 +139,7 @@ export const UserData = () => {
                       </div>
                     </div>
                   </form>
-                  <span className="absolute inset-x-0 bottom-3 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
+                  <span className="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
                 </div>
               </div>
             </div>

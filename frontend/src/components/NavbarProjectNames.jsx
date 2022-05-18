@@ -15,9 +15,9 @@ export default function ProjectData(){
     } return (
     <>
        {data?.data.map((project) => ( 
-         <li key={project._id} className="nav-text">
-             <Link className="nav-text a" to={`/project/${project._id}/tasks`}>
-             <span>{project.name}</span>
+         <li key={project._id} className="flex justify-start items-center py-2 pr-0 pl-4 list-none h-14 text-indigo-400">
+             <Link className="flex items-center h-full bg-indigo-700 w-11/12 rounded hover:bg-indigo-900" to={`/project/${project._id}/tasks`}>
+             <span className="ml-4">{project.name}</span>
              </Link>
       </li>
       ))
