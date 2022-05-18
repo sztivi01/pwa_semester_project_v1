@@ -4,6 +4,7 @@ import * as IoIcons from 'react-icons/io';
 import "../index.css"
 
 
+
 export const NavbarData = [
   
   {
@@ -20,3 +21,4 @@ export const NavbarData = [
   
   }
 ];
+
