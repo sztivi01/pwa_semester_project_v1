@@ -4,6 +4,9 @@ import Window from "./Window";
 import ITEM_TYPE from "../data/types";
 import { statuses } from '../data';
 
+
+
+
 const Item = ({ item, index, moveItem, status }) => {
     const ref = useRef(null);
 
@@ -55,6 +58,8 @@ const Item = ({ item, index, moveItem, status }) => {
 
     const currentStatus = statuses.find(s => s.status === item.status)
 
+
+
     return (
         <Fragment>
             <div
@@ -67,6 +72,7 @@ const Item = ({ item, index, moveItem, status }) => {
                 <p className={"item-title"}>{item.title}</p>
                 <p className={"item-status"}>{currentStatus.icon}</p>
             </div>
+
             <Window
                 item={item}
                 onClose={onClose}

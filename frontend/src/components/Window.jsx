@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Modal from "react-modal";
 import { request } from "../utils/axios-util";
+import { FaTrashAlt } from "react-icons/fa";
+import swal from "sweetalert";
 
 Modal.setAppElement("#root");
 
@@ -31,6 +33,17 @@ const Window = ({ show, onClose, item, currentStatus }) => {
             setDescription("");
         })
     }
+
+    function handleOnClickDeleteTask(_id,projectId)  {
+        request({ url: `/tasks/${item._id}`, method: 'DELETE'}).then(() => {
+          swal( 'Success!', 'Task was deleted.','success',
+          {
+            buttons: false,
+          })
+        }).then(() => {
+            window.setTimeout(function(){window.location.reload()},1000)
+          })
+        }
 
     return (
         <Modal
@@ -76,6 +89,10 @@ const Window = ({ show, onClose, item, currentStatus }) => {
                 <p>
                     {currentStatus.icon}-{currentStatus.status}
                 </p>
+                <button onClick={() => handleOnClickDeleteTask(item._id)} className="mb-5">
+                <FaTrashAlt className="mr-2 text-2xl text-green-400 hover:text-black"/>
+                </button>
+
             </div>
             <div>
             </div>
