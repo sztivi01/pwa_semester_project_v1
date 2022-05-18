@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { NavbarData } from "./NavbarData";
+import NavbarProjectNames from "./NavbarProjectNames";
 import { IconContext } from "react-icons";
 import * as FaIcons from "react-icons/fa";
 import * as IoIcons from "react-icons/io";
@@ -27,13 +28,10 @@ function Navbar() {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <div className="items-center justify-end flex-1 hidden space-x-4 sm:flex">
-            <img
-              className="w-16 rounded-full mr-5"
-              src={avatarImg}
-              alt="/"
-            />
+            <img className="w-16 rounded-full mr-5" src={avatarImg} alt="/" />
           </div>
         </div>
+
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
             <li className="navbar-toggle">
@@ -57,6 +55,8 @@ function Navbar() {
                 <span>Logout</span>
               </a>
             </li>
+            <div className="my-4 mx-3 border-b border-slate-400 "></div>
+            <NavbarProjectNames />
           </ul>
         </nav>
       </IconContext.Provider>
