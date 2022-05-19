@@ -2,8 +2,9 @@ import ProjectContainer from "../../components/ProjectContainer";
 import { FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { request } from "../../utils/axios-util";
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from "react-query";
+import NewProjectModal from "./NewProjectModal"
 
 
 
@@ -17,6 +18,12 @@ export default function DashboardHome() {
       const { data } = useQuery([userObject], (userId) =>
           fetchUser(userId)
       );
+
+      const [show, setShow] = useState(false);
+
+      const onOpen = () => setShow(true);
+  
+      const onClose = () => setShow(false);
       
 
   return (
@@ -25,15 +32,21 @@ export default function DashboardHome() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-16 lg:items-center place-items-center">
           <div className="max-w-lg mx-auto text-center lg:text-left lg:mx-0">
             <h2 className="text-3xl font-bold sm:text-4xl">Hi {data?.data.first_name} !</h2>
-            
+            <button onClick={onOpen}>
             <Link
-              to="#"
+            to=""
+              
               className="inline-flex items-center px-8 py-3 mt-8 text-white bg-indigo-600 border border-indigo-600 rounded hover:bg-transparent hover:text-indigo-600 active:text-indigo-500 focus:outline-none focus:ring"
             >
               <FaPlus className="w-5 h-5" />
 
               <span className="text-sm font-medium ml-4"> New Project </span>
             </Link>
+            </button>
+            <NewProjectModal
+                onClose={onClose}
+                show={show}
+            />
           </div>
           <div className="place-content-center">
             <p className="text-xl mb-4 ml-1">Your Projects</p>
