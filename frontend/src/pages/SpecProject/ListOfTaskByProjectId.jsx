@@ -16,28 +16,47 @@ const fetchTasksByProjectId = (projectId) => {
     return request({ url: `/tasks/project/${projectId}/tasks` });
 }
 
+const fetchProjectDetails = (projectId) => {
+    return request({ url: `/projects/details/${projectId}` });
+}
+
 export const ListOfTaskByProjectId = () => {
   const [items, setItems] = useState([]);
+  const [project, setProject] = useState({});
   const { projectId } = useParams();
 
   const { isLoading, data, refetch } = useQuery(
-    "projectNames",
+    "projectTasks",
     () => fetchTasksByProjectId(projectId),
     { manual: true }
   );
 
-
+  const { isProjectLoading,projectData } = useQuery(
+    "projectDetails",
+    () => fetchProjectDetails(projectId)
+  );
 
   useEffect(() => {
     let tasks = data?.data;
+    let project = projectData?.data;
+    
     // do some checking here to ensure data exist
     if (tasks) {
       // mutate data if you need to
       setItems(tasks);
     }
-  }, [data]);
+    
+    console.log(projectData)
 
-  if (isLoading) {
+    // do some checking here to ensure data exist
+    if (project) {
+      // mutate data if you need to
+      setProject(project);
+      console.log(project)
+    }
+  }, [data,projectData]);
+
+  if (isLoading || isProjectLoading) {
     return <h2>Loading...</h2>;
   }
 
@@ -84,8 +103,8 @@ export const ListOfTaskByProjectId = () => {
     <>
       <div className="w-full h-48">
         <div className="mt-10 text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl">Project Name</h2>
-          <h2 className="mt-5 text-xl sm:text-xl">Project description</h2>
+          <h2 className="text-3xl font-bold sm:text-4xl">{project.name}</h2>
+          <h2 className="mt-5 text-xl sm:text-xl">{project.description}</h2>
           <button
            
             className=" mt-5 px-5 py-2 text-white bg-indigo-600 border border-indigo-600 rounded hover:bg-transparent hover:text-indigo-600 active:text-indigo-500 focus:outline-none focus:ring"
