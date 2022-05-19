@@ -47,6 +47,7 @@ select {
   padding: 20px;
   height: 75%;
   background-color: rgb(241 245 249);
+  background-image: url(../../assets/background.jpg);
   border-radius: 12px;
   margin-top: 15px;
 }
@@ -96,7 +97,7 @@ select {
   border-radius: 5px;
   height: 600px;
   border-width: 2px;
-  border-color: rgb(229 231 235);
+  border-color: rgb(79 70 229);
 }
 
 .col-header {
