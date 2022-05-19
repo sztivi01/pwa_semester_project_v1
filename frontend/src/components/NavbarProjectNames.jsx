@@ -9,7 +9,7 @@ const fetchProjectNames = () => {
   
 
 export default function ProjectData(){
-    const { isLoading, data } = useQuery("projectNames", fetchProjectNames);
+    const { isLoading, data } = useQuery("projectNamesOnNav", fetchProjectNames);
     if (isLoading) {
       return <h2>Loading...</h2>;
     } return (
