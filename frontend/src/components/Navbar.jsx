@@ -28,7 +28,8 @@ function Navbar() {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <div className="items-center justify-end flex-1 hidden space-x-4 sm:flex">
-            <img className="w-16 rounded-full mr-5" src={avatarImg} alt="/" />
+           
+            <img  className="w-16 rounded-full mr-5" src={avatarImg} alt="/" />
           </div>
         </div>
 
