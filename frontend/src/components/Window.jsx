@@ -34,16 +34,18 @@ const Window = ({ show, onClose, item, currentStatus }) => {
         })
     }
 
-    function handleOnClickDeleteTask(_id,projectId)  {
-        request({ url: `/tasks/${item._id}`, method: 'DELETE'}).then(() => {
-          swal( 'Success!', 'Task was deleted.','success',
-          {
-            buttons: false,
-          })
-        }).then(() => {
-            window.setTimeout(function(){window.location.reload()},1000)
-          })
+    function handleOnClickDeleteTask(taskId) {
+        if (window.confirm("Are you sure you want to delete this task?")) {
+            request({ url: `/tasks/${taskId}`, method: 'DELETE' }).then(() => {
+                swal('Success!', 'Task was deleted.', 'success',
+                    {
+                        buttons: false,
+                    })
+            }).then(() => {
+                window.setTimeout(function () { window.location.reload() }, 1000)
+            })
         }
+    }
 
     return (
         <Modal

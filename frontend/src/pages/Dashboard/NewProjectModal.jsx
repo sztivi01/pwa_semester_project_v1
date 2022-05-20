@@ -9,8 +9,9 @@ import { useQuery } from "react-query";
 Modal.setAppElement("#root");
 
 const fetchAvailableUsers = () => {
-  return request({ url: `/users/`, method: "GET" });
-};
+    return request({ url: `/users/`, method: 'GET' });
+}
+
 
 const NewProjectModal = ({ show, onClose, project }) => {
   const ownerId = localStorage.getItem("user"); // this is going to be the ownerId
