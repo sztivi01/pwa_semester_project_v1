@@ -96,7 +96,7 @@ const NewProjectModal = ({ show, onClose, project }) => {
         <div className="max-w-lg mx-auto text-center">
           <h1 className="text-2xl font-bold sm:text-3xl reverse">Create New Project</h1>
         </div>
-        <div className={"close-btn-ctn"}>
+        <div className="text-right">
           <button
             onClick={(event) => [onClose(), resetFields()]}
             className={"close-btn"}
