@@ -112,6 +112,9 @@ export const ListOfTaskByProjectId = () => {
   const onOpen = () => setShow(true);
 
   const onClose = () => setShow(false);
+  const updated = () => {
+    refetchDetails()
+  }
 
   return (
     <>
@@ -166,6 +169,7 @@ export const ListOfTaskByProjectId = () => {
         onClose={onClose}
         show={show}
         project={project}
+        updated={updated}
       />
 
     </>
