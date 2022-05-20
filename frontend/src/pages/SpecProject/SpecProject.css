@@ -90,7 +90,7 @@ select {
 .col-wrapper {
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow-y: auto;
   margin: 20px;
   padding: 20px;
   background-color: #ebecf0;
