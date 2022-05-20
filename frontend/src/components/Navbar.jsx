@@ -28,8 +28,7 @@ function Navbar() {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <div className="items-center justify-end flex-1 hidden space-x-4 sm:flex">
-           
-            <img  className="w-16 rounded-full mr-5" src={avatarImg} alt="/" />
+            <img className="w-16 rounded-full mr-5" src={avatarImg} alt="/" />
           </div>
         </div>
 
@@ -55,16 +54,13 @@ function Navbar() {
                 <IoIcons.IoMdLogOut />
                 <span className="ml-4">Logout</span>
               </a>
-            </li>  
+            </li>
             <div className="my-4 mx-3 border-b border-slate-400 "></div>
             <div className="relative">
               <div className="overflow-auto h-96">
-                 <NavbarProjectNames />
+                <NavbarProjectNames />
               </div>
-           
-          
             </div>
-            
           </ul>
         </nav>
       </IconContext.Provider>

@@ -4,11 +4,17 @@ import { Link } from "react-router-dom";
 import "../index.css";
 
 const fetchProjectNames = () => {
-  return request({ url: `projects/all/${localStorage.getItem("user")}/${localStorage.getItem('email')}` });;
+  return request({
+    url: `projects/all/${localStorage.getItem("user")}/${localStorage.getItem(
+      "email"
+    )}`,
+  });
 };
 
 export default function ProjectData() {
-  const { isLoading, data } = useQuery("projectNamesNav", fetchProjectNames);
+  const { isLoading, data } = useQuery("projectNamesNav", fetchProjectNames, {
+    refetchInterval: 5000,
+  });
   if (isLoading) {
     return <h2>Loading...</h2>;
   }

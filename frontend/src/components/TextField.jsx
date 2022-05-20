@@ -1,14 +1,6 @@
-import React/* , { useEffect, useState } */ from "react";
+import React /* , { useEffect, useState } */ from "react";
 
 export default function TextField({ value, label, type, icon, onChange }) {
- /*  const [  content  setContent] = useState();
-
-  useEffect(() => {
-    if (value) {
-      setContent(value);
-    }
-  }, [value]); */
-
   return (
     <div className="flex flex-col mb-4">
       <label className="flex item-center">

@@ -1,22 +1,20 @@
+import React from "react";
 
-import React from 'react';
+import { Navigate, Outlet } from "react-router-dom";
 
-import {Navigate, Outlet} from 'react-router-dom'
-
-const useAuth=()=>{
-  const user=localStorage.getItem('user')
-  if(user){
-    return true
+const useAuth = () => {
+  const user = localStorage.getItem("user");
+  if (user) {
+    return true;
   } else {
-    return false
+    return false;
   }
-}
+};
 
-const  PublicRoutes=(props) =>{
+const PublicRoutes = (props) => {
+  const auth = useAuth();
 
-  const auth=useAuth()
-
-  return auth?<Navigate to="/dashboard"/>: <Outlet/>
-}
+  return auth ? <Navigate to="/dashboard" /> : <Outlet />;
+};
 
 export default PublicRoutes;

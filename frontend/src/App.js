@@ -17,7 +17,6 @@ import ListOfTaskByProjectId from "./pages/SpecProject/ListOfTaskByProjectId";
 const queryClient = new QueryClient();
 function App() {
   
-
   return (
     <QueryClientProvider client={queryClient}> 
     <div>

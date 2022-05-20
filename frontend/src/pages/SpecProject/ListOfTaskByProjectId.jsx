@@ -9,36 +9,39 @@ import { statuses } from "../../data";
 import "./SpecProject.css";
 import SubbmitCard from "./SubbmitCard";
 import { useLocation } from "react-router";
-import NewProjectModal from "../../pages/Dashboard/NewProjectModal"
-
+import ProjectUpdateCreateModal from "../../components/ProjectUpdateCreateModal";
 
 const fetchTasksByProjectId = (projectId) => {
   //return axios.get('https://stark-forest-32910.herokuapp.com/api/project')
   return request({ url: `/tasks/project/${projectId}/tasks` });
-}
+};
 
 const fetchProjectDetails = (projectId) => {
   return request({ url: `/projects/details/${projectId}` });
-}
+};
 
 export const ListOfTaskByProjectId = () => {
   const [items, setItems] = useState([]);
   const [project, setProject] = useState({});
   const [show, setShow] = useState(false);
   const { projectId } = useParams();
-  const location = useLocation()
+  const location = useLocation();
 
-  const { isLoading: isTaksLoading, data: tasksData, refetch: refetchTasks } = useQuery(
-    "projectTasks",
-    () => fetchTasksByProjectId(projectId),
-    { manual: true }
-  );
+  const {
+    isLoading: isTaksLoading,
+    data: tasksData,
+    refetch: refetchTasks,
+  } = useQuery("projectTasks", () => fetchTasksByProjectId(projectId), {
+    manual: true,
+  });
 
-  const { isLoading: isProjectLoading, data: projectData, refetch: refetchDetails } = useQuery(
-    "projectDetails",
-    () => fetchProjectDetails(projectId),
-    { manual: true }
-  );
+  const {
+    isLoading: isProjectLoading,
+    data: projectData,
+    refetch: refetchDetails,
+  } = useQuery("projectDetails", () => fetchProjectDetails(projectId), {
+    manual: true,
+  });
 
   useEffect(() => {
     let tasks = tasksData?.data;
@@ -50,26 +53,20 @@ export const ListOfTaskByProjectId = () => {
     }
   }, [tasksData]);
 
-
-
   useEffect(() => {
-
     let project = projectData?.data;
-    console.log(projectData)
 
     // do some checking here to ensure data exist
     if (project) {
       // mutate data if you need to
       setProject(project);
-      console.log(project)
     }
-
-  }, [projectData])
+  }, [projectData]);
 
   useEffect(() => {
-    refetchTasks()
-    refetchDetails()
-  }, [location.key, refetchDetails, refetchTasks])
+    refetchTasks();
+    refetchDetails();
+  }, [location.key, refetchDetails, refetchTasks]);
 
   if (isTaksLoading || isProjectLoading) {
     return <h2>Loading...</h2>;
@@ -104,7 +101,6 @@ export const ListOfTaskByProjectId = () => {
     });
   };
 
-
   const buttonClicked = () => {
     refetchTasks();
   };
@@ -113,8 +109,8 @@ export const ListOfTaskByProjectId = () => {
 
   const onClose = () => setShow(false);
   const updated = () => {
-    refetchDetails()
-  }
+    refetchDetails();
+  };
 
   return (
     <>
@@ -128,7 +124,6 @@ export const ListOfTaskByProjectId = () => {
           >
             Edit
           </button>
-
         </div>
       </div>
       <div className="mx-10 mb-10 flex">
@@ -165,13 +160,12 @@ export const ListOfTaskByProjectId = () => {
           ))}
         </div>
       </div>
-      <NewProjectModal
+      <ProjectUpdateCreateModal
         onClose={onClose}
         show={show}
         project={project}
         updated={updated}
       />
-
     </>
   );
 };

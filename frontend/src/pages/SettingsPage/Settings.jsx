@@ -20,16 +20,13 @@ export const UserData = () => {
     [email, fname, lname, localStorage.getItem("user")],
     (userId) => fetchUser(userId)
   );
-  console.log();
 
   const [user, setUser] = useState({});
   const [emailNew, setEmail] = useState("");
   const [passwordNew, setPassword] = useState("");
   useEffect(() => {
     let user = data?.data;
-    console.log(user);
     if (user) {
-      console.log(user);
       setUser(user);
     }
   }, [data]);
@@ -44,11 +41,11 @@ export const UserData = () => {
       method: "PUT",
       data: user,
     }).then(() => {
-        swal('Success!','E-mail updated succesfully','success',{
-            showCancelButton: true,
-            showConfirmButton: true
-          })
-          
+      swal("Success!", "E-mail updated succesfully", "success", {
+        showCancelButton: true,
+        showConfirmButton: true,
+      });
+
       setEmail("");
     });
   };
@@ -63,10 +60,10 @@ export const UserData = () => {
       method: "PUT",
       data: user,
     }).then(() => {
-        swal('Success!','Password updated succesfully','success',{
-            showCancelButton: true,
-            showConfirmButton: true
-          })
+      swal("Success!", "Password updated succesfully", "success", {
+        showCancelButton: true,
+        showConfirmButton: true,
+      });
       setPassword("");
     });
   };

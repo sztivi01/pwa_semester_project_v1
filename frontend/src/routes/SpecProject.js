@@ -1,12 +1,12 @@
-import React from 'react';
-import SpecProject from '../pages/SpecProject';
+import React from "react";
+import SpecProject from "../pages/SpecProject";
 
 const SpecProject = () => {
-     return (
-         <div>
-            <SpecProject />
-         </div>
-     )
-}
+  return (
+    <div>
+      <SpecProject />
+    </div>
+  );
+};
 
 export default SpecProject;

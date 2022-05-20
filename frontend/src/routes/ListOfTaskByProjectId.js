@@ -1,12 +1,12 @@
-import React from 'react';
-import ListOfTaskByProjectId from '../components/ListOfTaskByProjectId';
+import React from "react";
+import ListOfTaskByProjectId from "../components/ListOfTaskByProjectId";
 
 const ListOfTaskByProjectId = () => {
-     return (
-         <div>
-            <ListOfTaskByProjectId />
-         </div>
-     )
-}
+  return (
+    <div>
+      <ListOfTaskByProjectId />
+    </div>
+  );
+};
 
 export default ListOfTaskByProjectId;
