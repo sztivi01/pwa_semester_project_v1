@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../index.css";
 
 const fetchProjectNames = () => {
-  return request({ url: "/projects/" + localStorage.getItem("user") });
+  return request({ url: `projects/all/${localStorage.getItem("user")}/${localStorage.getItem('email')}` });;
 };
 
 export default function ProjectData() {

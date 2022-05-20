@@ -10,7 +10,7 @@ import {BsFillArrowRightSquareFill} from "react-icons/bs";
 
 
 const fetchProjectNames = () => {
-  return request({ url: "/projects/" + localStorage.getItem("user") });
+  return request({ url: `projects/all/${localStorage.getItem("user")}/${localStorage.getItem('email')}` });;
 };
 
 function handleOnClickDelete(projectId)  {
