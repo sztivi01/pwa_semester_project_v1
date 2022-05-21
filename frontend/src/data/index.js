@@ -16,5 +16,4 @@ const statuses = [{
     color: "#3981DE"
 }];
 
-
 export { statuses };

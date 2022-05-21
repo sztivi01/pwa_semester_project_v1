@@ -12,7 +12,6 @@ import { useLocation } from "react-router";
 import ProjectUpdateCreateModal from "../../components/ProjectUpdateCreateModal";
 
 const fetchTasksByProjectId = (projectId) => {
-  //return axios.get('https://stark-forest-32910.herokuapp.com/api/project')
   return request({ url: `/tasks/project/${projectId}/tasks` });
 };
 
@@ -106,7 +105,6 @@ export const ListOfTaskByProjectId = () => {
   };
 
   const onOpen = () => setShow(true);
-
   const onClose = () => setShow(false);
   const updated = () => {
     refetchDetails();

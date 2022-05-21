@@ -173,7 +173,7 @@ const ProjectUpdateCreateModal = ({ show, onClose, project, updated }) => {
           </div>
 
           <div>
-            <h1>Select Fruits</h1>
+            <h1>Selected Users:</h1>
 
             <Select
               isClearable
@@ -186,7 +186,6 @@ const ProjectUpdateCreateModal = ({ show, onClose, project, updated }) => {
               getOptionLabel={(option) => `${option["email"]}`}
               getOptionValue={(option) => `${option["email"]}`}
             />
-            <pre>{JSON.stringify(selectedUsers)}</pre>
           </div>
 
           {!project && (

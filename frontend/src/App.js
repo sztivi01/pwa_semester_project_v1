@@ -1,7 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import {QueryClientProvider,QueryClient} from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools'
 import Login from "./routes/Login";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
 import PublicRoutes from './routes/PublicRoutes';
@@ -26,8 +25,8 @@ function App() {
           <Route exact path="/" element={<Navigate to="/registration" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<Registration />} />
-        </Route>
-        <Route path="/" element={<><Navbar/><ProtectedRoutes/></>}>
+          </Route>
+          <Route path="/" element={<><Navbar/><ProtectedRoutes/></>}>
           <Route path="/dashboard" element={<DashboardHome/>} />
           <Route path="/settings" element={<Settings/>} />
           <Route path="/project/:projectId/tasks" element={<ListOfTaskByProjectId />} />
@@ -35,7 +34,6 @@ function App() {
         </Routes>
       </DndProvider>
     </div>
-            <ReactQueryDevtools/>
     </QueryClientProvider>
   );
 }
