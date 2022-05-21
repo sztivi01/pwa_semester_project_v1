@@ -38,7 +38,6 @@ export default function Loginn() {
         localStorage.setItem("email", res["data"].email);
         localStorage.setItem("firstName", res["data"].first_name);
         localStorage.setItem("lastName", res["data"].last_name);
-        //localStorage.setItem("userObject", JSON.stringify(res.data));
         window.location.href = "/dashboard";
       });
     } else if (res["error"] !== null) {
@@ -73,14 +72,14 @@ export default function Loginn() {
             label="Email"
             type={"text"}
             icon={<MdEmail className="ml-1 mr-2 mt-1" />}
-            onChange={(value) => setEmail(value)} //onChange={(e) => setEmail(e.target.value)}
+            onChange={(value) => setEmail(value)} 
           />
           <TextField
             value={password}
             label="Password"
             type={"password"}
             icon={<FaLock className="ml-1 mr-2 mt-1" />}
-            onChange={(value) => setPassword(value)} //onChange={(e) => setPassword(e.target.value)}
+            onChange={(value) => setPassword(value)} 
           />
           <button
             type="submit"

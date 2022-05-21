@@ -9,7 +9,6 @@ const fetchUser = (userId) => {
   return request({ url: "/users/" + localStorage.getItem("user") });
 };
 
-//const userObject = JSON.parse(localStorage.getItem('userObject'))
 
 const fname = localStorage.getItem("firstName");
 const lname = localStorage.getItem("lastName");
