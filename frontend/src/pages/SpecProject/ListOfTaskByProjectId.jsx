@@ -127,6 +127,7 @@ export const ListOfTaskByProjectId = () => {
       <div className="mx-10 mb-10 flex">
         <div className={"row"}>
           {statuses.map((s) => (
+            
             <div className="flex">
               <div key={s.status} className={"col-wrapper"}>
                 <h2 className={"col-header"}>{s.status.toUpperCase()}</h2>

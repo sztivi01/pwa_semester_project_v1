@@ -1,4 +1,4 @@
-import React /* , { useEffect, useState } */ from "react";
+import React  from "react";
 
 export default function TextField({ value, label, type, icon, onChange }) {
   return (
@@ -10,7 +10,6 @@ export default function TextField({ value, label, type, icon, onChange }) {
       <input
         className="border border-indigo-600 rounded-lg relative  p-2"
         type={type}
-        // value={content ? content : null}
         onChange={(event) => {
           if (onChange) {
             onChange(event.target.value);

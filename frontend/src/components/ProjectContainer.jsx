@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-//import axios from "axios";
 import { useQuery } from "react-query";
 import { request } from "../utils/axios-util";
 import swal from "sweetalert";
